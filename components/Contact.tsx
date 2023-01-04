@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
 
 type Inputs = {
   name: string;
@@ -79,6 +80,27 @@ function Contact({}: Props) {
           </button>
         </form>
       </div>
+      <Link className="absolute bottom-20" href="#hero">
+        <footer className="sticky bottom-5 w-full cursor-pointer">
+          <p className="justify-center text-center">Click me to go up!</p>
+          <div className="flex items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-8 h-8"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18"
+              />
+            </svg>
+          </div>
+        </footer>
+      </Link>
     </div>
   );
 }

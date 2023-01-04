@@ -20,7 +20,7 @@ function About({}: Props) {
         transition={{ duration: 1.2 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
-        src="https://pbs.twimg.com/profile_images/1546860989097955328/gHhaJl3l_400x400.jpg"
+        src="https://pbs.twimg.com/profile_images/1610709639179517968/9IIGsq7p_400x400.jpg"
       />
       <div className="space-y-10 px-0 md:px-10">
         <h4 className="text-4xl font-semibold text-gray-500">
