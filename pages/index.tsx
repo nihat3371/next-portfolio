@@ -1,7 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
-import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import About from "../components/About";
@@ -9,11 +6,23 @@ import WorkExperience from "../components/WorkExperience";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Contact from "../components/Contact";
-import Link from "next/link";
+import { GetServerSideProps, GetStaticProps, NextPage } from "next";
+import { Experience, PageInfo, Project, Skill, Social } from "../typings";
+import { fetchPageInfo } from "../utils/fetchPageInfo";
+import { fetchExperiences } from "../utils/fetchExperience";
+import { fetchSkills } from "../utils/fetchSkills";
+import { fetchProjects } from "../utils/fetchProjects.ts";
+import { fetchSocial } from "../utils/fetchSocials";
 
-const inter = Inter({ subsets: ["latin"] });
+type Props = {
+  pageInfo: PageInfo;
+  experiences: Experience[];
+  skills: Skill[];
+  projects: Project[];
+  socials: Social[];
+};
 
-export default function Home() {
+const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
   return (
     <>
       {" "}
@@ -21,15 +30,15 @@ export default function Home() {
         <Head>
           <title>Nihat Aydin Portfolio</title>
         </Head>
-        <Header />
+        <Header socials={socials} />
         <section id="hero" className="snap-start">
-          <Hero />
+          <Hero pageInfo={pageInfo} />
         </section>
         <section id="about" className="snap-center">
-          <About />
+          <About pageInfo={pageInfo} />
         </section>
         <section id="experience" className="snap-center">
-          <WorkExperience />
+          <WorkExperience experiences={experiences} />
         </section>
         <section id="skills" className="snap-start">
           <Skills />
@@ -43,4 +52,24 @@ export default function Home() {
       </div>
     </>
   );
-}
+};
+
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  const pageInfo: PageInfo = (await fetchPageInfo()) || null;
+  const experiences: Experience[] = (await fetchExperiences()) || null;
+  const skills: Skill[] = (await fetchSkills()) || null;
+  const projects: Project[] = (await fetchProjects()) || null;
+  const socials: Social[] = (await fetchSocial()) || null;
+
+  return {
+    props: {
+      pageInfo,
+      experiences,
+      skills,
+      socials,
+      projects,
+    },
+  };
+};
+
+export default Home;

@@ -1,9 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { PageInfo } from "../typings";
+import { urlfor } from "../sanity";
 
-type Props = {};
+type Props = { pageInfo: PageInfo };
 
-function About({}: Props) {
+function About({ pageInfo }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -20,19 +22,13 @@ function About({}: Props) {
         transition={{ duration: 1.2 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
-        src="https://pbs.twimg.com/profile_images/1610709639179517968/9IIGsq7p_400x400.jpg"
+        src={urlfor(pageInfo.profilePic).url()}
       />
       <div className="space-y-10 px-0 md:px-10">
         <h4 className="text-4xl font-semibold text-gray-500">
           WHO ARE <span className="underline decoration-gray-200">YOU</span>
         </h4>
-        <p className="text-lg">
-          As a self-learner, I'm on track to learn more and more. I started with
-          my journey writing HTML templates, but the web is a whole ocean now.
-          But now, I'm usually creating type safe web/mobile applications for
-          users from all around the world. I want to prove my skills for my
-          work's next tech and playgrounds.
-        </p>
+        <p className="text-lg">{pageInfo?.backgroundInformation}</p>
       </div>
     </motion.div>
   );
