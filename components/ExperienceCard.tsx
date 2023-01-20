@@ -16,23 +16,25 @@ export default function ExperienceCard({ experience }: Props) {
         className="w-32 h-32 rounded-full md:rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
         src={urlfor(experience?.companyImage).url()}
       />
-      <div className="  px-0 md:px-10">
-        <h4 className="text-4xl font-light">FRONT END LUMHAR</h4>
-        <p className="font-bold text-2xl mt-1">pararar</p>
+      <div className="px-0 md:px-10">
+        <h4 className="text-4xl font-light">{experience.company}</h4>
+        <p className="font-bold text-2xl mt-1">{experience.jobTitle}</p>
         <div className="flex space-x-2 my-2">
           {experience?.technologies?.map((technology) => (
             <img
               key={technology._id}
               className="h-10 w-10 rounded-full"
-              src={urlfor(technology.image).url()}
+              src={urlfor(technology.image)?.url()}
             />
           ))}
         </div>
-        <p className="uppercase py-5 text-gray-300">
-          {" "}
-          {new Date(experience?.dateStarted).toDateString()}
+        <p className="uppercase py-2 text-gray-300">
+          {new Date(experience?.dateStarted).toDateString()} -{" "}
+          {experience?.isCurrentlyWorking
+            ? "Present"
+            : new Date(experience.dateEnded).toDateString()}
         </p>
-        <ul className="list-disc space-y-4 ml-5 text-lg h-96">
+        <ul className="list-disc space-y-4 ml-5 text-lg h-60">
           {experience?.points?.map((point, i) => (
             <li key={i}>{point}</li>
           ))}

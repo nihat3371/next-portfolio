@@ -26,11 +26,11 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
   return (
     <>
       {" "}
-      <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-scroll z-0 overflow-y-scroll overflow-x-hidden  scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-stone-300">
+      <div className="bg-black/90 text-white h-screen snap-y snap-mandatory overflow-scroll z-0 overflow-y-scroll overflow-x-hidden  scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-stone-300">
         <Head>
           <title>Nihat Aydin Portfolio</title>
         </Head>
-        <Header socials={socials} />
+        <Header />
         <section id="hero" className="snap-start">
           <Hero pageInfo={pageInfo} />
         </section>
@@ -41,7 +41,7 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
           <WorkExperience experiences={experiences} />
         </section>
         <section id="skills" className="snap-start">
-          <Skills />
+          <Skills skills={skills} />
         </section>
         <section id="projects" className="snap-start">
           <Projects />

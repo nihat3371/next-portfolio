@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import { urlfor } from "../sanity";
+import { motion } from "framer-motion";
 import { PageInfo } from "../typings";
 import BackgroundCircles from "./BackgroundCircles";
 type Props = {
@@ -27,9 +28,9 @@ export default function Hero({ pageInfo }: Props) {
         alt=""
       />
       <div className="z-20">
-        <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
+        <motion.h2 className="animate-pulse text-lg uppercase text-[#40E0D0] pb-2 tracking-[15px]">
           {pageInfo?.role}
-        </h2>
+        </motion.h2>
         <h1 className="text-5xl lg:text-4xl font-semibold">
           <span className="mr-3">{text}</span>
           <Cursor cursorColor="#F7AB0A" />
