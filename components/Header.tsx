@@ -16,7 +16,7 @@ export default function Header({}: Props) {
       >
         <SocialIcon
           url="https://twitter.com/Nihat3371"
-          fgColor="gray"
+          fgColor="#1DA1F2"
           bgColor="transparent"
         />
         <SocialIcon
@@ -27,6 +27,11 @@ export default function Header({}: Props) {
         <SocialIcon
           url="https://www.instagram.com/nihataydiinn/"
           fgColor="gray"
+          bgColor="transparent"
+        />
+        <SocialIcon
+          url="https://www.linkedin.com/in/nihataydin"
+          fgColor="#0072b1"
           bgColor="transparent"
         />
       </motion.div>
@@ -43,7 +48,7 @@ export default function Header({}: Props) {
             fgColor="gray"
             bgColor="transparent"
           />
-          <p className="uppercase hidden md:inline-flex text-sm text-gray-400 ">
+          <p className="uppercase hidden md:inline-flex text-sm text-gray ">
             Reach Me
           </p>
         </motion.div>

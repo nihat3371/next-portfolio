@@ -28,7 +28,15 @@ function About({ pageInfo }: Props) {
         <h4 className="text-4xl font-semibold text-gray-500">
           WHO ARE <span className="underline decoration-gray-200">YOU</span>
         </h4>
-        <p className="text-lg">{pageInfo?.backgroundInformation}</p>
+        <p className="text-lg">
+          <span className="text-orange-500">
+            React, TypeScript, Next.js, Tailwind, Material UI, Framer, Motion,
+            Sanity
+          </span>
+          <br />
+
+          {pageInfo?.backgroundInformation}
+        </p>
       </div>
     </motion.div>
   );

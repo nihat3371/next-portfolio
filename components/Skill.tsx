@@ -5,14 +5,13 @@ import { Skill } from "../typings";
 
 type Props = {
   skill: Skill;
-  directionLeft?: boolean;
 };
 
-const Skill = ({ skill, directionLeft }: Props) => {
+const Skill = ({ skill }: Props) => {
   return (
     <div className=" group relative flex cursor-pointer">
       <motion.img
-        initial={{ opacity: 0, x: directionLeft ? -200 : 200 }}
+        initial={{ opacity: 0 }}
         transition={{ duration: 1 }}
         whileInView={{ opacity: 1, x: 0 }}
         src={urlfor(skill?.image).url()}
