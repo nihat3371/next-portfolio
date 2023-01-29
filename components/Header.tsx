@@ -16,7 +16,7 @@ export default function Header({}: Props) {
       >
         <SocialIcon
           url="https://twitter.com/Nihat3371"
-          fgColor="#1DA1F2"
+          fgColor="gray"
           bgColor="transparent"
         />
         <SocialIcon

@@ -1,10 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Project } from "../typings";
+import { urlfor } from "../sanity";
 
-type Props = {};
+type Props = { projects: Project[] };
 
-export default function Projects({}: Props) {
-  const projects = [1, 2, 3, 4, 5];
+export default function Projects({ projects }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -20,31 +21,36 @@ export default function Projects({}: Props) {
         {projects.map((project, i) => (
           <div className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen">
             <motion.img
+              className=" top-20 h-[100%] w-[100%] object-contain"
               initial={{ opacity: 0 }}
               transition={{ duration: 1 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              src="https://pbs.twimg.com/profile_images/1546860989097955328/gHhaJl3l_400x400.jpg"
+              src={urlfor(project.image).url()}
               alt=""
             />
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="text-4xl font-semibold text-center">
-                <span className="">
-                  Case Study Bla {i + 1} of {projects.length}:
-                </span>
-                E-Commerce
+                <span className=""> {i + 1} : </span>
+                {project.title}
               </h4>
+
               <p className="text-lg text-center md:text-left">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Incidunt magnam voluptatum magni modi sunt! Minus, quas! Fuga et
-                minus laborum vero, sint ea praesentium a quae labore inventore
-                animi saepe!
+                {project.summary}
+                <div className="flex items-center space-x-2 justify-center ">
+                  {project?.technologies.map((tech) => (
+                    <img
+                      className="h-10 w-10 rounded-full"
+                      key={tech._id}
+                      src={urlfor(tech.image).url()}
+                    ></img>
+                  ))}
+                </div>
               </p>
             </div>
           </div>
         ))}
       </div>
-      <div className="w-full absolute top-[30%] bg-stone-300/5 left-0 h-[500px] -skew-y-12 "></div>
     </motion.div>
   );
 }
