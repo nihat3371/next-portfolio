@@ -21,7 +21,7 @@ export default function Projects({ projects }: Props) {
         {projects.map((project, i) => (
           <div className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen">
             <motion.img
-              className=" top-20 h-[100%] w-[100%] object-contain"
+              className="h-[30%] w-[100%] object-contain md:h-60 lg:h-[80%] lg:w-[100%]"
               initial={{ opacity: 0 }}
               transition={{ duration: 1 }}
               whileInView={{ opacity: 1 }}
@@ -35,7 +35,7 @@ export default function Projects({ projects }: Props) {
                 {project.title}
               </h4>
 
-              <p className="text-lg text-center md:text-left">
+              <div className="text-lg text-center md:text-left">
                 {project.summary}
                 <div className="flex items-center space-x-2 justify-center ">
                   {project?.technologies.map((tech) => (
@@ -46,7 +46,7 @@ export default function Projects({ projects }: Props) {
                     ></img>
                   ))}
                 </div>
-              </p>
+              </div>
             </div>
           </div>
         ))}
