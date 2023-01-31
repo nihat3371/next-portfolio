@@ -6,7 +6,7 @@ import WorkExperience from "../components/WorkExperience";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Contact from "../components/Contact";
-import { GetServerSideProps, GetStaticProps, NextPage } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import { Experience, PageInfo, Project, Skill, Social } from "../typings";
 import { fetchPageInfo } from "../utils/fetchPageInfo";
 import { fetchExperiences } from "../utils/fetchExperience";
@@ -54,7 +54,7 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const pageInfo: PageInfo = (await fetchPageInfo()) || null;
   const experiences: Experience[] = (await fetchExperiences()) || null;
   const skills: Skill[] = (await fetchSkills()) || null;
