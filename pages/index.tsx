@@ -54,7 +54,7 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = (await fetchPageInfo()) || null;
   const experiences: Experience[] = (await fetchExperiences()) || null;
   const skills: Skill[] = (await fetchSkills()) || null;
