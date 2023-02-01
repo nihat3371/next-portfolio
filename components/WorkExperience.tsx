@@ -12,7 +12,7 @@ function WorkExperience({ experiences }: Props) {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
     >
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute top-16 uppercase tracking-[20px] text-gray-500 text-1xl lg:text-2xl ">
         Experience
       </h3>
       <div className="w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-stone-300">

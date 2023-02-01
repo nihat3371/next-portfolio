@@ -19,48 +19,49 @@ function Contact({}: Props) {
 
   return (
     <div className="h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl lg:text-4xl ">
         Contact
       </h3>
       <div className=" flex flex-col space-y-5">
-        <h4 className="text-4xl font-semibold text-center relative">
+        <h4 className="text-1xl lg:text-3xl font-semibold text-center relative">
           Ready to work with you,
           <p className="decoration-[#F7AB0A]/50 underline">Lets talk!</p>
         </h4>
 
-        <div className="space-y-10">
-          <div className="flex items-center space-x-5 justify-center">
-            <PhoneIcon className=" text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">+90 555 059 74 46</p>
+        <div className="space-y-5">
+          <div className=" flex items-center space-x-5 justify-center">
+            <PhoneIcon className=" text-[#white] h-7 w-7 animate-pulse" />
+            <p className="text-1xl lg:text-3xl ">+90 555 059 74 46</p>
           </div>
           <div className="flex items-center space-x-5 justify-center">
-            <EnvelopeIcon className=" text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">nihat3371@hotmail.com</p>
+            <EnvelopeIcon className=" text-[#white] h-7 w-7 animate-pulse" />
+            <p className="text-1xl lg:text-4xl ">nihat3371@hotmail.com</p>
           </div>
           <div className="flex items-center space-x-5 justify-center">
-            <MapPinIcon className=" text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">İzmir</p>
+            <MapPinIcon className=" text-[#white] h-7 w-7 animate-pulse" />
+            <p className="text-1xl lg:text-3xl">İzmir</p>
           </div>
         </div>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-2 w-fit mx-auto"
+          className="flex flex-col space-y-2 w-full mr-0"
         >
-          <div className=" flex space-x-2">
+          <div className=" flex  flex-col space-x-2 space-y-1">
             <input
               {...register("name")}
               placeholder="Name"
               className="contactInput"
               type="text"
             />
-            <input
-              {...register("email")}
-              placeholder="E-Mail"
-              className="contactInput"
-              type="email"
-            />
           </div>
+          <input
+            {...register("email")}
+            placeholder="E-Mail"
+            className="contactInput"
+            type="email"
+          />
+
           <input
             {...register("subject")}
             placeholder="Title"
@@ -82,14 +83,13 @@ function Contact({}: Props) {
       </div>
       <Link className="absolute bottom-20" href="#hero">
         <footer className="sticky bottom-5 w-full cursor-pointer">
-          <p className="justify-center text-center">Click me to go up!</p>
           <div className="flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
-              stroke="#fe2d5b"
+              stroke="white"
               className="w-8 h-8"
             >
               <path

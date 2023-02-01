@@ -15,7 +15,7 @@ function BackgroundCircles({}: Props) {
       transition={{ duration: 4.0 }}
       className="relative flex justify-center items-center "
     >
-      <div className="text-4xl animate-pulse bg-white/5 text-[#fe2d5b]">
+      <div className="text-3xl animate-pulse bg-white/5 text-[#fe2d5b]">
         Lookin for intership!
       </div>
     </motion.div>
