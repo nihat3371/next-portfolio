@@ -16,7 +16,7 @@ function BackgroundCircles({}: Props) {
       className="relative flex justify-center items-center "
     >
       <div className="text-3xl animate-pulse bg-white/5 text-[#fe2d5b]">
-        Lookin for intership!
+        Lookin for internship!
       </div>
     </motion.div>
   );
